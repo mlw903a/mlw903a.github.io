@@ -694,6 +694,26 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
 .band img { width: 100%; height: clamp(240px, 40vw, 520px); object-fit: cover; border-radius: var(--r-xl); }
 .band figcaption { font-size: var(--size-caption); color: var(--text-secondary); padding: 10px 4px 0; }
 .is-portrait img { width: auto; max-width: 100%; height: clamp(320px, 48vw, 560px); }
+
+/* hero: book cover, no photo (Oct 17) */
+.hero--book { align-items: center; justify-content: space-between; gap: clamp(20px, 4vw, 56px); padding-right: clamp(24px, 5vw, 72px); }
+.hero--book::after { display: none; }
+.hero--book .hero__copy { max-width: 36rem; }
+.hero__cover { flex: none; width: clamp(170px, 22vw, 280px); height: auto; border-radius: 6px; margin: clamp(32px, 4vw, 52px) 0; box-shadow: 0 26px 60px rgb(0 0 0 / 0.45), 0 2px 6px rgb(0 0 0 / 0.25); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.hero__btn { display: inline-block; padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--hero-btn-line); color: var(--hero-text); }
+.hero__btn.is-primary { background: var(--hero-btn-fill); color: var(--hero-btn-ink); border-color: transparent; }
+.hero--warm { --hero-text: #f3e9dc; --hero-text-muted: #f3e9dcb3; --hero-glass: rgb(243 233 220 / 0.08); --hero-glass-stroke: rgb(243 233 220 / 0.22); --hero-btn-fill: #e7c48e; --hero-btn-ink: #1c140d; --hero-btn-line: rgb(243 233 220 / 0.4);
+  background: radial-gradient(ellipse 70% 90% at 75% 45%, #4b3a2a 0%, #2b2017 48%, #140f0b 100%); }
+.hero--cream { --hero-text: #2a1f16; --hero-text-muted: #6b5a48; --hero-glass: rgb(42 31 22 / 0.05); --hero-glass-stroke: rgb(42 31 22 / 0.16); --hero-btn-fill: #2a1f16; --hero-btn-ink: #f6efe4; --hero-btn-line: rgb(42 31 22 / 0.3);
+  background: radial-gradient(ellipse 70% 90% at 75% 45%, #fbf6ee 0%, #f3eadc 55%, #ebdfcc 100%); box-shadow: 0 8px 40px #2a1f161a; }
+.hero--cream .hero__cover { box-shadow: 0 22px 50px rgb(60 40 20 / 0.28), 0 2px 6px rgb(60 40 20 / 0.18); }
+.pair--solo { grid-template-columns: minmax(0, 1fr); max-width: 72ch; }
+@media (max-width: 760px) {
+  .hero--book { flex-direction: column-reverse; justify-content: flex-start; align-items: center; padding-right: 0; gap: 0; }
+  .hero--book .hero__copy { align-self: stretch; }
+  .hero__cover { width: 190px; margin: 32px 0 4px; }
+}
 </style>
     <style>.hero:not(:has(.hero__img)) { background-image: url("hero.webp"); }
 </style>
@@ -736,22 +756,18 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
     <div class="page" id="top">
       <header class="nav glass" data-auto=""></header>
       <main class="main">
-        <section class="hero">
-          <img class="hero__img" src="hero-photo.jpg" alt="A young grapevine with green leaves and a small cluster of grapes"/>
+        <section class="hero hero--book hero--cream">
           <div class="hero__copy">
             <p class="hero__eyebrow">A short book for longtime believers</p>
             <h1>First I Pray</h1>
             <p class="hero__sub">Bringing the ordinary moment to the Father.</p>
             <p class="hero__meta">by Mark Williams</p>
-          </div>
-          <aside class="callout" aria-label="Next step">
-            <p class="callout__head"><span class="hark-mark" data-size="16"></span> Next step</p>
-            <p class="callout__lead"><strong>Listen to a sample.</strong> Five short excerpts, three to four minutes each.</p>
-            <div class="links">
-              <a class="btn" href="#samples">Listen to a sample</a>
-              <a class="btn" href="https://www.amazon.com/dp/B0HM5K17SH" rel="noopener" target="_blank">Get the Kindle book</a>
+            <div class="hero__actions">
+              <a class="hero__btn is-primary" href="https://www.amazon.com/dp/B0HM5K17SH" rel="noopener" target="_blank">Get the book</a>
+              <a class="hero__btn" href="#samples">Listen to a sample</a>
             </div>
-          </aside>
+          </div>
+          <img class="hero__cover" src="author.jpg" alt="Front cover of First I Pray: Walking Humbly With Our God, by Mark Williams"/>
         </section>
 
         <section class="section" id="book" data-nav="The book">
@@ -759,10 +775,7 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
             <p class="head__eyebrow">About the book</p>
             <h2>A book about firstness.</h2>
           </div>
-          <div class="pair">
-            <figure class="band is-portrait">
-              <img src="author.jpg" alt="Front cover of First I Pray by Mark Williams"/>
-            </figure>
+          <div class="pair pair--solo">
             <div class="x-stack">
               <p class="x-quote">“I believe God can be trusted with my life. I have a harder time trusting Him with the next ten minutes.”</p>
               <div class="prose">
@@ -913,36 +926,36 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
             .x-modal__close{all:unset;cursor:pointer;position:absolute;top:-38px;right:0;color:#fff;font-size:28px;line-height:1}
           </style>
           <div class="x-reels">
-            <button type="button" class="x-reel" data-id="AvZZe2KOV2A" data-live="1791932400000" aria-label="Watch: I can trust God with my life. The next ten minutes?"><img src="reels/poster-01.jpg" alt="" loading="lazy" width="360" height="640"/><span>I can trust God with my life. The next ten minutes?</span></button>
-            <button type="button" class="x-reel" data-id="vdpgnrmz_pY" data-live="1792018800000" aria-label="Watch: The first thing you do with fear changes the whole hour"><img src="reels/poster-02.jpg" alt="" loading="lazy" width="360" height="640"/><span>The first thing you do with fear changes the whole hour</span></button>
-            <button type="button" class="x-reel" data-id="o5rCXO8hxjg" data-live="1792105200000" aria-label="Watch: What do you reach for first?"><img src="reels/poster-03.jpg" alt="" loading="lazy" width="360" height="640"/><span>What do you reach for first?</span></button>
-            <button type="button" class="x-reel" data-id="s5iwkvjTnTk" data-live="1792191600000" aria-label="Watch: Comparison is a sideways prayer"><img src="reels/poster-04.jpg" alt="" loading="lazy" width="360" height="640"/><span>Comparison is a sideways prayer</span></button>
-            <button type="button" class="x-reel" data-id="uc2nmo3_9q4" data-live="1792278000000" aria-label="Watch: A prayer small enough for the hardest second"><img src="reels/poster-05.jpg" alt="" loading="lazy" width="360" height="640"/><span>A prayer small enough for the hardest second</span></button>
-            <button type="button" class="x-reel" data-id="OLJIkyFp6VI" data-live="1792364400000" aria-label="Watch: &quot;I pray&quot; and &quot;first I pray&quot; are not the same sentence"><img src="reels/poster-06.jpg" alt="" loading="lazy" width="360" height="640"/><span>&quot;I pray&quot; and &quot;first I pray&quot; are not the same sentence</span></button>
-            <button type="button" class="x-reel" data-id="C5BCSXTkzbU" data-live="1792450800000" aria-label="Watch: The spirit is willing, but the flesh is weak"><img src="reels/poster-07.jpg" alt="" loading="lazy" width="360" height="640"/><span>The spirit is willing, but the flesh is weak</span></button>
-            <button type="button" class="x-reel" data-id="P-SnvfK6JdQ" data-live="1792537200000" aria-label="Watch: Sometimes being gracious is just ego wearing blue jeans"><img src="reels/poster-08.jpg" alt="" loading="lazy" width="360" height="640"/><span>Sometimes being gracious is just ego wearing blue jeans</span></button>
-            <button type="button" class="x-reel" data-id="0JbtUlm5OQY" data-live="1792623600000" aria-label="Watch: Your past can be a witness. It cannot be the judge."><img src="reels/poster-09.jpg" alt="" loading="lazy" width="360" height="640"/><span>Your past can be a witness. It cannot be the judge.</span></button>
-            <button type="button" class="x-reel" data-id="F0QxhUQ3CHU" data-live="1792710000000" aria-label="Watch: Quiet unbelief we&#x27;ve learned to call wisdom"><img src="reels/poster-10.jpg" alt="" loading="lazy" width="360" height="640"/><span>Quiet unbelief we&#x27;ve learned to call wisdom</span></button>
-            <button type="button" class="x-reel" data-id="G_3bUP64GxY" data-live="1792796400000" aria-label="Watch: Maybe I&#x27;m not behind them. Maybe I&#x27;m behind myself."><img src="reels/poster-11.jpg" alt="" loading="lazy" width="360" height="640"/><span>Maybe I&#x27;m not behind them. Maybe I&#x27;m behind myself.</span></button>
-            <button type="button" class="x-reel" data-id="9rFUJTwPuwE" data-live="1792882800000" aria-label="Watch: Before I ask the machine, I ask You"><img src="reels/poster-12.jpg" alt="" loading="lazy" width="360" height="640"/><span>Before I ask the machine, I ask You</span></button>
-            <button type="button" class="x-reel" data-id="TlzA8fIEPhs" data-live="1792969200000" aria-label="Watch: Lord, gather me back"><img src="reels/poster-13.jpg" alt="" loading="lazy" width="360" height="640"/><span>Lord, gather me back</span></button>
-            <button type="button" class="x-reel" data-id="fRPZwaeZauE" data-live="1793055600000" aria-label="Watch: Prayer is not a vending machine"><img src="reels/poster-14.jpg" alt="" loading="lazy" width="360" height="640"/><span>Prayer is not a vending machine</span></button>
-            <button type="button" class="x-reel" data-id="JbF0eGKQcSw" data-live="1793142000000" aria-label="Watch: Whatever gets there first teaches you"><img src="reels/poster-15.jpg" alt="" loading="lazy" width="360" height="640"/><span>Whatever gets there first teaches you</span></button>
-            <button type="button" class="x-reel" data-id="IP6_FOaQQn8" data-live="1793228400000" aria-label="Watch: Anxiety is a terrible prophet"><img src="reels/poster-16.jpg" alt="" loading="lazy" width="360" height="640"/><span>Anxiety is a terrible prophet</span></button>
-            <button type="button" class="x-reel" data-id="BfPiLbwqlUI" data-live="1793314800000" aria-label="Watch: Some things only come when you stop chasing them"><img src="reels/poster-17.jpg" alt="" loading="lazy" width="360" height="640"/><span>Some things only come when you stop chasing them</span></button>
-            <button type="button" class="x-reel" data-id="yd1Jg2rFT9Q" data-live="1793401200000" aria-label="Watch: Prayer isn&#x27;t a performance. It&#x27;s coming home."><img src="reels/poster-18.jpg" alt="" loading="lazy" width="360" height="640"/><span>Prayer isn&#x27;t a performance. It&#x27;s coming home.</span></button>
-            <button type="button" class="x-reel" data-id="1aodBbZh6x4" data-live="1793487600000" aria-label="Watch: The machine can answer a question. Only God can answer a prayer."><img src="reels/poster-19.jpg" alt="" loading="lazy" width="360" height="640"/><span>The machine can answer a question. Only God can answer a prayer.</span></button>
-            <button type="button" class="x-reel" data-id="GnNLH-VgJtY" data-live="1793577600000" aria-label="Watch: Fear says the same short sentences every time"><img src="reels/poster-20.jpg" alt="" loading="lazy" width="360" height="640"/><span>Fear says the same short sentences every time</span></button>
-            <button type="button" class="x-reel" data-id="Xp1eT70kZtY" data-live="1793664000000" aria-label="Watch: Words are little missionaries"><img src="reels/poster-21.jpg" alt="" loading="lazy" width="360" height="640"/><span>Words are little missionaries</span></button>
-            <button type="button" class="x-reel" data-id="hDNuMRCCYMk" data-live="1793750400000" aria-label="Watch: One of the cleanest prayers I know"><img src="reels/poster-22.jpg" alt="" loading="lazy" width="360" height="640"/><span>One of the cleanest prayers I know</span></button>
-            <button type="button" class="x-reel" data-id="xgSxQbGoiUs" data-live="1793836800000" aria-label="Watch: &quot;I calmed myself&quot; or &quot;I was met&quot;?"><img src="reels/poster-23.jpg" alt="" loading="lazy" width="360" height="640"/><span>&quot;I calmed myself&quot; or &quot;I was met&quot;?</span></button>
-            <button type="button" class="x-reel" data-id="GzF6PMtXVQ8" data-live="1793923200000" aria-label="Watch: Give fear the first five minutes and watch what happens"><img src="reels/poster-24.jpg" alt="" loading="lazy" width="360" height="640"/><span>Give fear the first five minutes and watch what happens</span></button>
-            <button type="button" class="x-reel" data-id="aOT-reMRFrE" data-live="1794009600000" aria-label="Watch: I used to want to save the world"><img src="reels/poster-25.jpg" alt="" loading="lazy" width="360" height="640"/><span>I used to want to save the world</span></button>
-            <button type="button" class="x-reel" data-id="S597-FDf5ok" data-live="1794096000000" aria-label="Watch: Fear with spreadsheets"><img src="reels/poster-26.jpg" alt="" loading="lazy" width="360" height="640"/><span>Fear with spreadsheets</span></button>
-            <button type="button" class="x-reel" data-id="oM7lQsxWRes" data-live="1794182400000" aria-label="Watch: I asked for relief. He gave me courage."><img src="reels/poster-27.jpg" alt="" loading="lazy" width="360" height="640"/><span>I asked for relief. He gave me courage.</span></button>
-            <button type="button" class="x-reel" data-id="zNOOslyFOJo" data-live="1794268800000" aria-label="Watch: Why &quot;try harder&quot; never worked for me"><img src="reels/poster-28.jpg" alt="" loading="lazy" width="360" height="640"/><span>Why &quot;try harder&quot; never worked for me</span></button>
-            <button type="button" class="x-reel" data-id="5_7LEMY8s78" data-live="1794355200000" aria-label="Watch: Entitlement closes the hand. Expectation opens the eyes."><img src="reels/poster-29.jpg" alt="" loading="lazy" width="360" height="640"/><span>Entitlement closes the hand. Expectation opens the eyes.</span></button>
-            <button type="button" class="x-reel" data-id="BHgN1bNEhQ8" data-live="1794441600000" aria-label="Watch: This is not a mountaintop practice"><img src="reels/poster-30.jpg" alt="" loading="lazy" width="360" height="640"/><span>This is not a mountaintop practice</span></button>
+            <button type="button" class="x-reel" data-id="AvZZe2KOV2A" data-live="1791932400000" aria-label="Watch: I can trust God with my life. The next ten minutes?"><img src="poster-01.jpg" alt="" loading="lazy" width="360" height="640"/><span>I can trust God with my life. The next ten minutes?</span></button>
+            <button type="button" class="x-reel" data-id="vdpgnrmz_pY" data-live="1792018800000" aria-label="Watch: The first thing you do with fear changes the whole hour"><img src="poster-02.jpg" alt="" loading="lazy" width="360" height="640"/><span>The first thing you do with fear changes the whole hour</span></button>
+            <button type="button" class="x-reel" data-id="o5rCXO8hxjg" data-live="1792105200000" aria-label="Watch: What do you reach for first?"><img src="poster-03.jpg" alt="" loading="lazy" width="360" height="640"/><span>What do you reach for first?</span></button>
+            <button type="button" class="x-reel" data-id="s5iwkvjTnTk" data-live="1792191600000" aria-label="Watch: Comparison is a sideways prayer"><img src="poster-04.jpg" alt="" loading="lazy" width="360" height="640"/><span>Comparison is a sideways prayer</span></button>
+            <button type="button" class="x-reel" data-id="uc2nmo3_9q4" data-live="1792278000000" aria-label="Watch: A prayer small enough for the hardest second"><img src="poster-05.jpg" alt="" loading="lazy" width="360" height="640"/><span>A prayer small enough for the hardest second</span></button>
+            <button type="button" class="x-reel" data-id="OLJIkyFp6VI" data-live="1792364400000" aria-label="Watch: &quot;I pray&quot; and &quot;first I pray&quot; are not the same sentence"><img src="poster-06.jpg" alt="" loading="lazy" width="360" height="640"/><span>&quot;I pray&quot; and &quot;first I pray&quot; are not the same sentence</span></button>
+            <button type="button" class="x-reel" data-id="C5BCSXTkzbU" data-live="1792450800000" aria-label="Watch: The spirit is willing, but the flesh is weak"><img src="poster-07.jpg" alt="" loading="lazy" width="360" height="640"/><span>The spirit is willing, but the flesh is weak</span></button>
+            <button type="button" class="x-reel" data-id="P-SnvfK6JdQ" data-live="1792537200000" aria-label="Watch: Sometimes being gracious is just ego wearing blue jeans"><img src="poster-08.jpg" alt="" loading="lazy" width="360" height="640"/><span>Sometimes being gracious is just ego wearing blue jeans</span></button>
+            <button type="button" class="x-reel" data-id="0JbtUlm5OQY" data-live="1792623600000" aria-label="Watch: Your past can be a witness. It cannot be the judge."><img src="poster-09.jpg" alt="" loading="lazy" width="360" height="640"/><span>Your past can be a witness. It cannot be the judge.</span></button>
+            <button type="button" class="x-reel" data-id="F0QxhUQ3CHU" data-live="1792710000000" aria-label="Watch: Quiet unbelief we&#x27;ve learned to call wisdom"><img src="poster-10.jpg" alt="" loading="lazy" width="360" height="640"/><span>Quiet unbelief we&#x27;ve learned to call wisdom</span></button>
+            <button type="button" class="x-reel" data-id="G_3bUP64GxY" data-live="1792796400000" aria-label="Watch: Maybe I&#x27;m not behind them. Maybe I&#x27;m behind myself."><img src="poster-11.jpg" alt="" loading="lazy" width="360" height="640"/><span>Maybe I&#x27;m not behind them. Maybe I&#x27;m behind myself.</span></button>
+            <button type="button" class="x-reel" data-id="9rFUJTwPuwE" data-live="1792882800000" aria-label="Watch: Before I ask the machine, I ask You"><img src="poster-12.jpg" alt="" loading="lazy" width="360" height="640"/><span>Before I ask the machine, I ask You</span></button>
+            <button type="button" class="x-reel" data-id="TlzA8fIEPhs" data-live="1792969200000" aria-label="Watch: Lord, gather me back"><img src="poster-13.jpg" alt="" loading="lazy" width="360" height="640"/><span>Lord, gather me back</span></button>
+            <button type="button" class="x-reel" data-id="fRPZwaeZauE" data-live="1793055600000" aria-label="Watch: Prayer is not a vending machine"><img src="poster-14.jpg" alt="" loading="lazy" width="360" height="640"/><span>Prayer is not a vending machine</span></button>
+            <button type="button" class="x-reel" data-id="JbF0eGKQcSw" data-live="1793142000000" aria-label="Watch: Whatever gets there first teaches you"><img src="poster-15.jpg" alt="" loading="lazy" width="360" height="640"/><span>Whatever gets there first teaches you</span></button>
+            <button type="button" class="x-reel" data-id="IP6_FOaQQn8" data-live="1793228400000" aria-label="Watch: Anxiety is a terrible prophet"><img src="poster-16.jpg" alt="" loading="lazy" width="360" height="640"/><span>Anxiety is a terrible prophet</span></button>
+            <button type="button" class="x-reel" data-id="BfPiLbwqlUI" data-live="1793314800000" aria-label="Watch: Some things only come when you stop chasing them"><img src="poster-17.jpg" alt="" loading="lazy" width="360" height="640"/><span>Some things only come when you stop chasing them</span></button>
+            <button type="button" class="x-reel" data-id="yd1Jg2rFT9Q" data-live="1793401200000" aria-label="Watch: Prayer isn&#x27;t a performance. It&#x27;s coming home."><img src="poster-18.jpg" alt="" loading="lazy" width="360" height="640"/><span>Prayer isn&#x27;t a performance. It&#x27;s coming home.</span></button>
+            <button type="button" class="x-reel" data-id="1aodBbZh6x4" data-live="1793487600000" aria-label="Watch: The machine can answer a question. Only God can answer a prayer."><img src="poster-19.jpg" alt="" loading="lazy" width="360" height="640"/><span>The machine can answer a question. Only God can answer a prayer.</span></button>
+            <button type="button" class="x-reel" data-id="GnNLH-VgJtY" data-live="1793577600000" aria-label="Watch: Fear says the same short sentences every time"><img src="poster-20.jpg" alt="" loading="lazy" width="360" height="640"/><span>Fear says the same short sentences every time</span></button>
+            <button type="button" class="x-reel" data-id="Xp1eT70kZtY" data-live="1793664000000" aria-label="Watch: Words are little missionaries"><img src="poster-21.jpg" alt="" loading="lazy" width="360" height="640"/><span>Words are little missionaries</span></button>
+            <button type="button" class="x-reel" data-id="hDNuMRCCYMk" data-live="1793750400000" aria-label="Watch: One of the cleanest prayers I know"><img src="poster-22.jpg" alt="" loading="lazy" width="360" height="640"/><span>One of the cleanest prayers I know</span></button>
+            <button type="button" class="x-reel" data-id="xgSxQbGoiUs" data-live="1793836800000" aria-label="Watch: &quot;I calmed myself&quot; or &quot;I was met&quot;?"><img src="poster-23.jpg" alt="" loading="lazy" width="360" height="640"/><span>&quot;I calmed myself&quot; or &quot;I was met&quot;?</span></button>
+            <button type="button" class="x-reel" data-id="GzF6PMtXVQ8" data-live="1793923200000" aria-label="Watch: Give fear the first five minutes and watch what happens"><img src="poster-24.jpg" alt="" loading="lazy" width="360" height="640"/><span>Give fear the first five minutes and watch what happens</span></button>
+            <button type="button" class="x-reel" data-id="aOT-reMRFrE" data-live="1794009600000" aria-label="Watch: I used to want to save the world"><img src="poster-25.jpg" alt="" loading="lazy" width="360" height="640"/><span>I used to want to save the world</span></button>
+            <button type="button" class="x-reel" data-id="S597-FDf5ok" data-live="1794096000000" aria-label="Watch: Fear with spreadsheets"><img src="poster-26.jpg" alt="" loading="lazy" width="360" height="640"/><span>Fear with spreadsheets</span></button>
+            <button type="button" class="x-reel" data-id="oM7lQsxWRes" data-live="1794182400000" aria-label="Watch: I asked for relief. He gave me courage."><img src="poster-27.jpg" alt="" loading="lazy" width="360" height="640"/><span>I asked for relief. He gave me courage.</span></button>
+            <button type="button" class="x-reel" data-id="zNOOslyFOJo" data-live="1794268800000" aria-label="Watch: Why &quot;try harder&quot; never worked for me"><img src="poster-28.jpg" alt="" loading="lazy" width="360" height="640"/><span>Why &quot;try harder&quot; never worked for me</span></button>
+            <button type="button" class="x-reel" data-id="5_7LEMY8s78" data-live="1794355200000" aria-label="Watch: Entitlement closes the hand. Expectation opens the eyes."><img src="poster-29.jpg" alt="" loading="lazy" width="360" height="640"/><span>Entitlement closes the hand. Expectation opens the eyes.</span></button>
+            <button type="button" class="x-reel" data-id="BHgN1bNEhQ8" data-live="1794441600000" aria-label="Watch: This is not a mountaintop practice"><img src="poster-30.jpg" alt="" loading="lazy" width="360" height="640"/><span>This is not a mountaintop practice</span></button>
           </div>
           <div class="links">
             <a class="btn" href="https://www.youtube.com/channel/UCUh5jTC8tr-TkAtprY-fJWg/shorts" rel="noopener" target="_blank">See them on YouTube</a>
