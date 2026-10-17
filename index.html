@@ -696,21 +696,21 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
 .is-portrait img { width: auto; max-width: 100%; height: clamp(320px, 48vw, 560px); }
 
 /* hero: book cover, no photo (Oct 17) */
-.hero--book { align-items: center; justify-content: space-between; gap: clamp(20px, 4vw, 56px); padding-right: clamp(24px, 5vw, 72px); }
+.hero.hero--book { align-items: center; justify-content: space-between; gap: clamp(20px, 4vw, 56px); padding-right: clamp(24px, 5vw, 72px); }
 .hero--book::after { display: none; }
 .hero--book .hero__copy { max-width: 36rem; }
 .hero__cover { flex: none; width: clamp(170px, 22vw, 280px); height: auto; border-radius: 6px; margin: clamp(32px, 4vw, 52px) 0; box-shadow: 0 26px 60px rgb(0 0 0 / 0.45), 0 2px 6px rgb(0 0 0 / 0.25); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 .hero__btn { display: inline-block; padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--hero-btn-line); color: var(--hero-text); }
 .hero__btn.is-primary { background: var(--hero-btn-fill); color: var(--hero-btn-ink); border-color: transparent; }
-.hero--warm { --hero-text: #f3e9dc; --hero-text-muted: #f3e9dcb3; --hero-glass: rgb(243 233 220 / 0.08); --hero-glass-stroke: rgb(243 233 220 / 0.22); --hero-btn-fill: #e7c48e; --hero-btn-ink: #1c140d; --hero-btn-line: rgb(243 233 220 / 0.4);
+.hero.hero--book.hero--warm { --hero-text: #f3e9dc; --hero-text-muted: #f3e9dcb3; --hero-glass: rgb(243 233 220 / 0.08); --hero-glass-stroke: rgb(243 233 220 / 0.22); --hero-btn-fill: #e7c48e; --hero-btn-ink: #1c140d; --hero-btn-line: rgb(243 233 220 / 0.4);
   background: radial-gradient(ellipse 70% 90% at 75% 45%, #4b3a2a 0%, #2b2017 48%, #140f0b 100%); }
 .hero--cream { --hero-text: #2a1f16; --hero-text-muted: #6b5a48; --hero-glass: rgb(42 31 22 / 0.05); --hero-glass-stroke: rgb(42 31 22 / 0.16); --hero-btn-fill: #2a1f16; --hero-btn-ink: #f6efe4; --hero-btn-line: rgb(42 31 22 / 0.3);
   background: radial-gradient(ellipse 70% 90% at 75% 45%, #fbf6ee 0%, #f3eadc 55%, #ebdfcc 100%); box-shadow: 0 8px 40px #2a1f161a; }
 .hero--cream .hero__cover { box-shadow: 0 22px 50px rgb(60 40 20 / 0.28), 0 2px 6px rgb(60 40 20 / 0.18); }
 .pair--solo { grid-template-columns: minmax(0, 1fr); max-width: 72ch; }
 @media (max-width: 760px) {
-  .hero--book { flex-direction: column-reverse; justify-content: flex-start; align-items: center; padding-right: 0; gap: 0; }
+  .hero.hero--book { flex-direction: column-reverse; justify-content: flex-start; align-items: center; padding-right: 0; gap: 0; }
   .hero--book .hero__copy { align-self: stretch; }
   .hero__cover { width: 190px; margin: 32px 0 4px; }
 }
@@ -756,7 +756,7 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
     <div class="page" id="top">
       <header class="nav glass" data-auto=""></header>
       <main class="main">
-        <section class="hero hero--book hero--cream">
+        <section class="hero hero--book hero--warm">
           <div class="hero__copy">
             <p class="hero__eyebrow">A short book for longtime believers</p>
             <h1>First I Pray</h1>
