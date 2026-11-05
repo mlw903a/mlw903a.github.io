@@ -714,17 +714,11 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
   .hero--book .hero__copy { align-self: stretch; }
   .hero__cover { width: 190px; margin: 32px 0 4px; }
 }
-.hero__quote { flex: 1 1 0; min-width: 0; max-width: 24rem; margin: 0; align-self: center; padding-left: 20px; border-left: 2px solid #e7c48e; color: var(--hero-text); }
-.hero__quote blockquote { margin: 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; font-style: italic; }
-.hero__quote figcaption { margin-top: 12px; font-size: 14px; line-height: 1.4; color: var(--hero-text-muted); }
-.hero__quote figcaption strong { display: block; color: var(--hero-text); font-weight: 600; font-style: normal; }
-@media (min-width: 761px) and (max-width: 1099px) {
-  .hero.hero--book { flex-wrap: wrap; }
-  .hero__quote { order: 3; flex-basis: 100%; max-width: 40rem; margin: 0 0 clamp(24px, 4vw, 40px) clamp(24px, 4vw, 48px); }
-}
-@media (max-width: 760px) {
-  .hero__quote { order: -1; align-self: stretch; max-width: none; margin: 0 24px 28px; }
-}
+.hero__quote { max-width: 34rem; margin: 36px 0 0; padding-left: 20px; border-left: 2px solid #e7c48e; color: var(--hero-text); }
+.hero__quote blockquote { margin: 0; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.5; font-style: italic; }
+.hero__quote figcaption { margin-top: 10px; font-size: 14px; line-height: 1.4; color: var(--hero-text-muted); }
+.hero__quote figcaption strong { color: var(--hero-text); font-weight: 600; font-style: normal; }
+@media (max-width: 760px) { .hero__quote { margin-top: 28px; } }
 </style>
     <style>.hero:not(:has(.hero__img)) { background-image: url("hero.webp"); }
 </style>
@@ -777,11 +771,11 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
               <a class="hero__btn is-primary" href="https://www.amazon.com/dp/B0HM5K17SH" rel="noopener" target="_blank">Get the book</a>
               <a class="hero__btn" href="#samples">Listen to a sample</a>
             </div>
-          </div>
-          <figure class="hero__quote">
+            <figure class="hero__quote">
             <blockquote>&ldquo;Authentic, powerful and refreshingly honest &hellip; true wisdom without Christian grandstanding or pretenses.&rdquo;</blockquote>
-            <figcaption><strong>Michael Reinemann</strong>author of <em>The Mind of Christ</em></figcaption>
+            <figcaption><strong>Michael Reinemann</strong>, author of <em>The Mind of Christ</em></figcaption>
           </figure>
+          </div>
           <img class="hero__cover" src="author.jpg" alt="Front cover of First I Pray: Walking Humbly With Our God, by Mark Williams"/>
         </section>
 
